@@ -1,0 +1,26 @@
+﻿@model MvcKutuphane.Models.Entity.TBL_KATEGORI
+
+@{
+    ViewBag.Title = "KategoriGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("KategoriGuncelle", "Kategori", FormMethod.Post))
+{
+    <br>
+    <div class="form-group">
+        @Html.LabelFor(k => k.ID)
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control", @style = "width: 500px" })
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(k => k.AD, "Kategori Adı : ")
+        @Html.TextBoxFor(k => k.AD, new { @class = "form-control", @style = "width: 500px" })
+    </div>
+
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}
+
