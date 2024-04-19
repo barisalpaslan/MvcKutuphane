@@ -8,40 +8,51 @@
 
 <h2>Kitaplar</h2>
 
+@using (Html.BeginForm("Index", "Kitap", FormMethod.Get))
+{
 <div style="margin-bottom:15px; margin-top:15px; width:500px">
-    <input type="text" class="form-control" placeholder="Aranacak Kitap..."/>
+    <b>Aranacak Kitap Adını Giriniz..</b> @Html.TextBox("p")
+    <input type="submit" value="Ara" />
 </div>
+}
 
-    <table class="table table-bordered">
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kitap Adı</th>
+        <th>Kitap Yazarı</th>
+        <th>Kategori</th>
+        <th>Basım Yılı</th>
+        <th>Yayınevi</th>
+        <th>Sayfa</th>
+        <th>Durum</th>
+        <th>Silme</th>
+        <th>Güncelleme</th>
+    </tr>
+
+    @foreach (var ktp in Model)
+    {
         <tr>
-            <th>ID</th>
-            <th>Kitap Adı</th>
-            <th>Kitap Yazarı</th>
-            <th>Kategori</th>
-            <th>Basım Yılı</th>
-            <th>Yayınevi</th>
-            <th>Sayfa</th>
-            <th>Durum</th>
-            <th>Silme</th>
-            <th>Güncelleme</th>
+            <td>@ktp.ID</td>
+            <td>@ktp.AD</td>
+            <td>@ktp.TBL_YAZAR.AD&nbsp @ktp.TBL_YAZAR.SOYAD</td>
+            <td>@ktp.TBL_KATEGORI.AD</td>
+            <td>@ktp.BASIMYIL</td>
+            <td>@ktp.YAYINEVI</td>
+            <td>@ktp.SAYFA</td>
+            <td>@ktp.DURUM</td>
+            <td>
+                @Html.ActionLink("Sil", "KitapSil", new { id = ktp.ID }, new
+                {
+                    @class = "btn btn-danger",
+                     onclick = "return confirm('Silmek İstediğinize Emin Misiniz ?')"
+                })
+            </td>
+            <td><a href="/Kitap/KitapGetir/@ktp.ID" class="btn btn-warning">Güncelle</a></td>
         </tr>
+    }
+</table>
 
-        @foreach (var ktp in Model)
-        {
-            <tr>
-                <td>@ktp.ID</td>
-                <td>@ktp.AD</td>
-                <td>@ktp.TBL_YAZAR.AD&nbsp @ktp.TBL_YAZAR.SOYAD</td>
-                <td>@ktp.TBL_KATEGORI.AD</td>
-                <td>@ktp.BASIMYIL</td>
-                <td>@ktp.YAYINEVI</td>
-                <td>@ktp.SAYFA</td>
-                <td>@ktp.DURUM</td>
-                <td><a href="/Kitap/KitapSil/@ktp.ID" class="btn btn-danger">Sil</a></td>
-                <td><a href="/Kitap/KitapGetir/@ktp.ID" class="btn btn-warning">Güncelle</a></td>
-            </tr>
-        }
-    </table>
-
-    <a href="/Kitap/KitapEkle/" class="btn btn-primary"> Yeni Kitap Ekle </a>
+<a href="/Kitap/KitapEkle/" class="btn btn-primary"> Yeni Kitap Ekle </a>
 

@@ -1,0 +1,60 @@
+﻿@model MvcKutuphane.Models.Entity.TBL_UYELER
+
+@{
+    ViewBag.Title = "UyeGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Üye Güncelleme Sayfası</h2>
+
+@using (Html.BeginForm("UyeGuncelle", "Uye", FormMethod.Post))
+{
+    <br>
+    <div class="form-group">
+        @Html.LabelFor(k => k.ID)
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control", @style = "width: 500px" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(k => k.AD, "Üye Adı : ")
+        @Html.TextBoxFor(k => k.AD, new { @class = "form-control", @style = "width: 500px" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(k => k.SOYAD, "Üye Soyadı : ")
+        @Html.TextBoxFor(k => k.SOYAD, new { @class = "form-control", @style = "width: 500px" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(k => k.MAIL, "Mail : ")
+        @Html.TextBoxFor(k => k.MAIL, new { @class = "form-control", @style = "width: 500px" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(k => k.KULLANICIADI, "Kullanıcı Adı : ")
+        @Html.TextBoxFor(k => k.KULLANICIADI, new { @class = "form-control", @style = "width: 500px" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(k => k.SIFRE, "Şifre : ")
+        @Html.TextBoxFor(k => k.SIFRE, new { @class = "form-control", @style = "width: 500px" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(k => k.FOTOGRAF, "Fotoğraf : ")
+        @Html.TextBoxFor(k => k.FOTOGRAF, new { @class = "form-control", @style = "width: 500px" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(k => k.TELEFON, "Telefon : ")
+        @Html.TextBoxFor(k => k.TELEFON, new { @class = "form-control", @style = "width: 500px" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(k => k.OKUL, "Okul : ")
+        @Html.TextBoxFor(k => k.OKUL, new { @class = "form-control", @style = "width: 500px" })
+    </div>
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}

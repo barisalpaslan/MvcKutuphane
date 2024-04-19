@@ -1,0 +1,33 @@
+﻿@model MvcKutuphane.Models.Entity.TBL_HAREKET
+
+@{
+    ViewBag.Title = "OduncVer";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kitap Ödünç Verme Sayfası</h2>
+
+<br>
+
+<form class="form-group" method="post">
+    <div>
+        <label>Üye Id : </label>
+        @*<input type="text" class="form-control" name="AD" />*@
+        @Html.TextBoxFor(k => k.UYE, new { @class = "form-control", @style = "width: 500px" })
+    </div>
+    <br>
+    <div>
+        <label>Kitap Id : </label>
+        @Html.TextBoxFor(k => k.KITAP,  new { @class = "form-control", @style = "width : 500px" })
+    </div>
+    <br>
+    <div>
+        <label>Personel Id : </label>
+        @Html.TextBoxFor(k => k.PERSONEL, new { @class = "form-control", @style = "width : 500px" })
+    </div>
+    <br>
+    
+    <div>
+        <button class="btn btn-info" id="Btn1">Kitabı Ödünç Ver</button>
+    </div>
+</form>
