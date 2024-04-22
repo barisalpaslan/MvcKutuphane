@@ -18,7 +18,7 @@
     <br>
     <div>
         <label>Kategori : </label>
-        @Html.DropDownListFor(k => k.TBL_KATEGORI.ID, (List<SelectListItem>)ViewBag.dgr1, new {@class ="form-control", @style="width : 500px"})
+        @Html.DropDownListFor(k => k.TBL_KATEGORI.ID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control", @style = "width : 500px" })
     </div>
     <br>
     <div>
@@ -41,6 +41,8 @@
         @Html.TextBoxFor(k => k.SAYFA, new { @class = "form-control", @style = "width: 500px" })
     </div>
     <br>
+    <input type="hidden" name="DURUM" value="True"/>
+        @*@Html.HiddenFor(k => k.DURUM)*@
     <div>
         <button class="btn btn-info" id="Btn1">Ekle</button>
     </div>

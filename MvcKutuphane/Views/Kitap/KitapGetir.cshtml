@@ -11,12 +11,12 @@
 {
     <div class="form-group">
         <label> Kitap Id : </label>
-        @Html.TextBoxFor(y => y.ID, new { @class = "form-control" })
+        @Html.TextBoxFor(y => y.ID, new { @class = "form-control", @style = "width : 500px" })
     </div>
 
     <div class="form-group" style="margin-top:22px">
         <label> Kitap Adı : </label>
-        @Html.TextBoxFor(y => y.AD, new { @class = "form-control" })
+        @Html.TextBoxFor(y => y.AD, new { @class = "form-control", @style = "width : 500px" })
     </div>
 
     <div class="form-group" style="margin-top:22px">
@@ -31,18 +31,21 @@
 
     <div class="form-group" style="margin-top:22px">
         <label> Basımyılı : </label>
-        @Html.TextBoxFor(y => y.BASIMYIL, new { @class = "form-control" })
+        @Html.TextBoxFor(y => y.BASIMYIL, new { @class = "form-control", @style = "width : 500px" })
     </div>
 
     <div class="form-group" style="margin-top:22px">
         <label> Yayınevi : </label>
-        @Html.TextBoxFor(y => y.YAYINEVI, new { @class = "form-control" })
+        @Html.TextBoxFor(y => y.YAYINEVI, new { @class = "form-control", @style = "width : 500px" })
     </div>
 
     <div class="form-group" style="margin-top:22px">
         <label> Sayfa : </label>
-        @Html.TextBoxFor(y => y.SAYFA, new { @class = "form-control" })
+        @Html.TextBoxFor(y => y.SAYFA, new { @class = "form-control", @style = "width : 500px" })
     </div>
+
+    //controllerdan default true getirttik, buraya gerek kalmadı
+    @*<input type="hidden" name="DURUM" value="True" />*@
 
     <div>
         <button class="btn btn-warning">Güncelle</button>

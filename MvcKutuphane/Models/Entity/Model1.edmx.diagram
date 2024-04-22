@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8cc8056ac3d4476ba73336c06ab57cac" Name="Diagram1">
+      <Diagram DiagramId="8cc8056ac3d4476ba73336c06ab57cac" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="DBKUTUPHANEModel.TBL_CEZALAR" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.TBL_HAREKET" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.TBL_KASA" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
@@ -19,6 +19,7 @@
         <AssociationConnector Association="DBKUTUPHANEModel.FK_TBL_HAREKET_TBL_UYELER" ManuallyRouted="false" />
         <AssociationConnector Association="DBKUTUPHANEModel.FK_TBL_KITAP_TBL_KATEGORI" ManuallyRouted="false" />
         <AssociationConnector Association="DBKUTUPHANEModel.FK_TBL_KITAP_TBL_YAZAR" ManuallyRouted="false" />
+        <AssociationConnector Association="DBKUTUPHANEModel.FK_TBL_HAREKET_TBL_PERSONEL" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

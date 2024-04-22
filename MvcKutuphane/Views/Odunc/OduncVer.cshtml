@@ -18,7 +18,7 @@
     <br>
     <div>
         <label>Kitap Id : </label>
-        @Html.TextBoxFor(k => k.KITAP,  new { @class = "form-control", @style = "width : 500px" })
+        @Html.TextBoxFor(k => k.KITAP, new { @class = "form-control", @style = "width : 500px" })
     </div>
     <br>
     <div>
@@ -26,7 +26,25 @@
         @Html.TextBoxFor(k => k.PERSONEL, new { @class = "form-control", @style = "width : 500px" })
     </div>
     <br>
-    
+
+    <div>
+        <label>Kitap Alış Tarihi : </label>
+        <input type="text" class="form-control" name="ALISTARIH"
+               value="@DateTime.Now.ToShortDateString()" />
+    </div>
+    <br>
+    <div>
+        <label>Kitabın İade Edilmesi Gereken Tarih : </label>
+        <input type="text" class="form-control" name="IADETARIH"
+               value="@DateTime.Now.AddDays(7).ToShortDateString()" />
+    </div>
+
+    <br>
+
+    <div>
+        <input type="hidden" class="form-control" name="ISLEMDURUM"
+               value="false" />
+    </div>
     <div>
         <button class="btn btn-info" id="Btn1">Kitabı Ödünç Ver</button>
     </div>
