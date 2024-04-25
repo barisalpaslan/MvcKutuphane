@@ -14,12 +14,13 @@
         <label>Yazar Adı</label>
         @*<input type="text" class="form-control" name="AD" />*@
         @Html.TextBoxFor(k => k.AD, new { @class = "form-control", @style = "width: 500px" })
-
+        @Html.ValidationMessageFor(y => y.AD, "", new {@style = "color:red"})
     </div>
     <br>
     <div>
         <label>Yazar Soyadı</label>
         @Html.TextBoxFor(k => k.SOYAD, new { @class = "form-control", @style = "width: 500px" })
+        @Html.ValidationMessageFor(y => y.SOYAD, "", new { @style = "color:red" })
     </div>
     <br>
     <div>

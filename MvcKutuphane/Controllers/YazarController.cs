@@ -26,6 +26,10 @@ namespace MvcKutuphane.Controllers
         [HttpPost]
         public ActionResult YazarEkle(TBL_YAZAR p)
         {
+            if(!ModelState.IsValid)
+            {
+                return View("YazarEkle");
+            }
             db.TBL_YAZAR.Add(p);
             db.SaveChanges();
             return RedirectToAction("Index");

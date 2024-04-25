@@ -1,8 +1,129 @@
-﻿
+﻿@using MvcKutuphane.Models.Entity
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>İstatistikler</h2>
 
+<link href="~/web2/css/style.css" rel="stylesheet" />
+<script src="~/web2/js/Chart1.js"></script>
+
+<div class="list_of_members">
+    <div class="sales">
+        <div class="icon">
+            <i class="dollar"></i>
+        </div>
+        <div class="icon-text">
+            <h3>@ViewBag.dgr4 TL</h3>
+            <p>Kasadaki Tutar</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="new-users">
+        <div class="icon">
+            <i class="user1"></i>
+        </div>
+        <div class="icon-text">
+            <h3>@ViewBag.dgr</h3>
+            <p>Toplam Üye Sayısı</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="orders">
+        <div class="icon">
+            <i class="order"></i>
+        </div>
+        <div class="icon-text">
+            <h3>@ViewBag.dgr2</h3>
+            <p>Kitap Sayısı</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="visitors">
+        <div class="icon">
+            <i class="visit"></i>
+        </div>
+        <div class="icon-text">
+            <h3>@ViewBag.dgr3</h3>
+            <p>Ödünç Kitaplar</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+
+
+</div>
+
+
+<div class="list_of_members">
+    <div class="sales">
+        <div class="icon">
+            <i class="dollar"></i>
+        </div>
+        <div class="icon-text">
+            <h3>@ViewBag.dgr5</h3>
+            <p>Kategori Sayısı</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="new-users">
+        <div class="icon">
+            <i class="user1"></i>
+        </div>
+        <div class="icon-text">
+            <h4 style="color:white; font-size:x-large">@ViewBag.dgr9</h4>
+            <p>En Aktif Üye</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="orders">
+        <div class="icon">
+            <i class="order"></i>
+        </div>
+        <div class="icon-text">
+            <h4 style="color:white; font-size:x-large" >@ViewBag.dgr7</h4>
+            <p>En Çok Okunan Kitap</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="visitors">
+        <div class="icon">
+            <i class="visit"></i>
+        </div>
+        <div class="icon-text">
+            <h4 style="color:white; font-size:x-large">@ViewBag.dgr6</h4>
+            <p>En Çok Kitap Yazar </p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+
+</div>
+
+
+<div class="list_of_members">
+    <div class="sales">
+        <div class="icon">
+            <i class="dollar"></i>
+        </div>
+        <div class="icon-text">
+            <h4 style="color:white; font-size:x-large">@ViewBag.dgr8</h4>
+            <p>Personel Efficiency</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="new-users">
+        <div class="icon">
+            <i class="user1"></i>
+        </div>
+        <div class="icon-text">
+            <h3>@ViewBag.dgr10</h3>
+            <p>Bugünkü Ödünç Kitaplar</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+   
+
+</div>
