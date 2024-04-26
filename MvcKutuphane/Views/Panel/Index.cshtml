@@ -1,0 +1,70 @@
+﻿@model MvcKutuphane.Models.Entity.TBL_UYELER
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/PanelLayout.cshtml";
+}
+<br>
+
+<h3>Öğrenci Paneli Anasayfa</h3>
+
+<br>
+
+@using (Html.BeginForm("Index2", "Panel", FormMethod.Post))
+{
+<table class="table table-hover">
+    <tr>
+        <td>
+            <label style="font-weight:bolder">Mail :</label> @HttpContext.Current.User.Identity.Name
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.ID, "ID : ", new { @style = "font-weight:bolder" })
+            @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @style = "width:500px" })
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.AD, "Adı : ", new { @style = "font-weight:bolder" })
+            @Html.TextBoxFor(x => x.AD, new { @class = "form-control", @style = "width:500px" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.SOYAD, "Soyadı : ", new { @style = "font-weight:bolder" })
+            @Html.TextBoxFor(x => x.SOYAD, new { @class = "form-control", @style = "width:500px" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.KULLANICIADI, "Kullanıcı Adı : ", new { @style = "font-weight:bolder" })
+            @Html.TextBoxFor(x => x.KULLANICIADI, new { @class = "form-control", @style = "width:500px" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.SIFRE, "Şifre : ", new { @style = "font-weight:bolder" })
+            @Html.TextBoxFor(x => x.SIFRE, new { @class = "form-control", @style = "width:500px" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.OKUL, "Okul : ", new { @style = "font-weight:bolder" })
+            @Html.TextBoxFor(x => x.OKUL, new { @class = "form-control", @style = "width:500px" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.FOTOGRAF, "Fotoğraf : ", new { @style = "font-weight:bolder" })
+            @Html.TextBoxFor(x => x.FOTOGRAF, new { @class = "form-control", @style = "width:500px" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button class="btn btn-warning">Bilgileri Güncelle</button>
+        </td>
+    </tr>
+</table>
+}
