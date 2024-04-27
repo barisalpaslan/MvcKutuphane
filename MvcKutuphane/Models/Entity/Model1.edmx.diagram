@@ -22,6 +22,7 @@
         <AssociationConnector Association="DBKUTUPHANEModel.FK_TBL_HAREKET_TBL_PERSONEL" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.TBL_HAKKIMIZDA" Width="1.5" PointX="8.375" PointY="7.75" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.TBL_ILETISIM" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DBKUTUPHANEModel.TBL_MESAJLAR" Width="1.5" PointX="10.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
