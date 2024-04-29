@@ -5,20 +5,21 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
+<link href="~/Css/TabloRenk.css" rel="stylesheet" />
 
 <h2>Kitaplar</h2>
 
 @using (Html.BeginForm("Index", "Kitap", FormMethod.Get))
 {
-<div style="margin-bottom:15px; margin-top:15px; width:500px">
-    <b>Aranacak Kitap Adını Giriniz..</b> @Html.TextBox("p")
-    <input type="submit" value="Ara" />
-</div>
+    <div style="margin-bottom:15px; margin-top:15px; width:500px">
+        <b>Aranacak Kitap Adını Giriniz..</b> @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </div>
 }
 
 
 <table class="table table-bordered">
-    <tr>
+    <tr class="tablorenk">
         <th>ID</th>
         <th>Kitap Adı</th>
         <th>Kitap Yazarı</th>
@@ -41,7 +42,7 @@
             <td>@ktp.BASIMYIL</td>
             <td>@ktp.YAYINEVI</td>
             <td>@ktp.SAYFA</td>
-            <td>@ktp.DURUM</td>
+            <td>@(ktp.DURUM == true ? "Aktif" : "Pasif")</td>
             <td>
                 @Html.ActionLink("Sil", "KitapSil", new { id = ktp.ID }, new
                 {

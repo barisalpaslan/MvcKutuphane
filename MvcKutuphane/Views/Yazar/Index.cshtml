@@ -5,19 +5,20 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
+<link href="~/Css/TabloRenk.css" rel="stylesheet" />
 
 <h2>Yazarlar</h2>
 
 <br>
 
-<table class="table table-striped">
-    <tr style="background-color:coral">
+<table class="table table-bordered">
+    <tr class="tablorenk">
         <th>ID</th>
         <th>Yazar Adı</th>
         <th>Yazar Soyadı</th>
-        <th>Detay</th>
         <th>Silme</th>
         <th>Güncelleme</th>
+        <th>Yazarın Kitapları</th>
     </tr>
 
     @foreach (var yzr in Model)
@@ -26,11 +27,11 @@
             <td>@yzr.ID</td>
             <td>@yzr.AD</td>
             <td>@yzr.SOYAD</td>
-            <td>@yzr.DETAY</td>
             @*<td><a href="/Yazar/YazarSil/@yzr.ID" class="btn btn-danger">Sil</a></td>*@
             <td>@Html.ActionLink("Sil", "YazarSil", new {id = yzr.ID} , new {@class= "btn btn-danger", 
                  onclick = "return confirm('Silmek İstediğinize Emin Misiniz ?')"})</td>
             <td><a href="/Yazar/YazarGetir/@yzr.ID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Yazar/YazarKitaplar/@yzr.ID" class="btn btn-info">Göster</a></td>
         </tr>
     }
 </table>

@@ -32,7 +32,7 @@ namespace MvcKutuphane.Models.Entity
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_HAREKET> TBL_HAREKET { get; set; }
-        public virtual TBL_KATEGORI TBL_KATEGORI { get; set; }
         public virtual TBL_YAZAR TBL_YAZAR { get; set; }
+        public virtual TBL_KATEGORI TBL_KATEGORI { get; set; }
     }
 }

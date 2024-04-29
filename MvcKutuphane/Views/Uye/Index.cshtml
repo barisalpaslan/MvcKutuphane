@@ -7,13 +7,14 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
+<link href="~/Css/TabloRenk.css" rel="stylesheet" />
 
-<h2>Üyeler Sayfası</h2>
+<h2>Üyeler</h2>
 
 <br>
 
 <table class="table table-bordered">
-    <tr>
+    <tr class="tablorenk">
         <th>ID</th>
         <th>Üye Adı</th>
         <th>Üye Soyadı</th>
@@ -25,6 +26,7 @@
         <th>Okul</th>
         <th>Silme</th>
         <th>Güncelleme</th>
+        <th>Kitap Geçmişi</th>
     </tr>
 
     @foreach (var uye in Model)
@@ -41,6 +43,7 @@
             <td>@uye.OKUL</td>
             <td><a href="/Uye/UyeSil/@uye.ID" class="btn btn-danger">Sil</a></td>
             <td><a href="/Uye/UyeGetir/@uye.ID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Uye/UyeKitapGecmis/@uye.ID" class="btn btn-info">Kitap Geçmişi</a></td>
         </tr>
     }
 </table>

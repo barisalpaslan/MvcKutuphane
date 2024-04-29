@@ -5,17 +5,20 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
+<link href="~/Css/TabloRenk.css" rel="stylesheet" />
 
 <h2>Kategoriler</h2>
 
 <br>
 
 <table class="table table-bordered">
-    <tr>
+    <tr class="tablorenk">
         <th>ID</th>
         <th>Kategori Adı</th>
+        <th>Durum</th>
         <th>Silme</th>
         <th>Güncelleme</th>
+        <th>Aktif Hale Getir</th>
     </tr>
 
     @foreach (var ktg in Model)
@@ -23,8 +26,10 @@
         <tr>
             <td>@ktg.ID</td>
             <td>@ktg.AD</td>
+            <td>@(ktg.DURUM == true ? "Aktif" : "Pasif")</td>
             <td><a href="/Kategori/KategoriSil/@ktg.ID" class="btn btn-danger">Sil</a></td>
             <td><a href="/Kategori/KategoriGetir/@ktg.ID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Kategori/KategoriAktif/@ktg.ID" class="btn btn-success">Aktif</a></td>
         </tr>
     }
 </table>

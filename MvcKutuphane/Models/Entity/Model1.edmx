@@ -70,6 +70,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AD" Type="varchar" MaxLength="50" />
+          <Property Name="DURUM" Type="bit" />
         </EntityType>
         <EntityType Name="TBL_KITAP">
           <Key>
@@ -305,14 +306,6 @@
           <Property Name="AY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="TUTAR" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
-        <EntityType Name="TBL_KATEGORI">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TBL_KITAP" Relationship="Self.FK_TBL_KITAP_TBL_KATEGORI" FromRole="TBL_KATEGORI" ToRole="TBL_KITAP" />
-        </EntityType>
         <EntityType Name="TBL_KITAP">
           <Key>
             <PropertyRef Name="ID" />
@@ -326,9 +319,9 @@
           <Property Name="SAYFA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
           <Property Name="DURUM" Type="Boolean" />
           <NavigationProperty Name="TBL_HAREKET" Relationship="Self.FK_TBL_HAREKET_TBL_KITAP" FromRole="TBL_KITAP" ToRole="TBL_HAREKET" />
-          <NavigationProperty Name="TBL_KATEGORI" Relationship="Self.FK_TBL_KITAP_TBL_KATEGORI" FromRole="TBL_KITAP" ToRole="TBL_KATEGORI" />
           <NavigationProperty Name="TBL_YAZAR" Relationship="Self.FK_TBL_KITAP_TBL_YAZAR" FromRole="TBL_KITAP" ToRole="TBL_YAZAR" />
           <Property Name="KITAPRESIM" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_KATEGORI" Relationship="DBKUTUPHANEModel.FK_TBL_KITAP_TBL_KATEGORI" FromRole="TBL_KITAP" ToRole="TBL_KATEGORI" />
         </EntityType>
         <EntityType Name="TBL_PERSONEL">
           <Key>
@@ -412,18 +405,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBL_KITAP_TBL_KATEGORI">
-          <End Role="TBL_KATEGORI" Type="Self.TBL_KATEGORI" Multiplicity="0..1" />
-          <End Role="TBL_KITAP" Type="Self.TBL_KITAP" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBL_KATEGORI">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="TBL_KITAP">
-              <PropertyRef Name="KATEGORI" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TBL_KITAP_TBL_YAZAR">
           <End Role="TBL_YAZAR" Type="Self.TBL_YAZAR" Multiplicity="0..1" />
           <End Role="TBL_KITAP" Type="Self.TBL_KITAP" Multiplicity="*" />
@@ -441,7 +422,6 @@
           <EntitySet Name="TBL_CEZALAR" EntityType="Self.TBL_CEZALAR" />
           <EntitySet Name="TBL_HAREKET" EntityType="Self.TBL_HAREKET" />
           <EntitySet Name="TBL_KASA" EntityType="Self.TBL_KASA" />
-          <EntitySet Name="TBL_KATEGORI" EntityType="Self.TBL_KATEGORI" />
           <EntitySet Name="TBL_KITAP" EntityType="Self.TBL_KITAP" />
           <EntitySet Name="TBL_PERSONEL" EntityType="Self.TBL_PERSONEL" />
           <EntitySet Name="TBL_UYELER" EntityType="Self.TBL_UYELER" />
@@ -462,10 +442,6 @@
             <End Role="TBL_UYELER" EntitySet="TBL_UYELER" />
             <End Role="TBL_HAREKET" EntitySet="TBL_HAREKET" />
           </AssociationSet>
-          <AssociationSet Name="FK_TBL_KITAP_TBL_KATEGORI" Association="Self.FK_TBL_KITAP_TBL_KATEGORI">
-            <End Role="TBL_KATEGORI" EntitySet="TBL_KATEGORI" />
-            <End Role="TBL_KITAP" EntitySet="TBL_KITAP" />
-          </AssociationSet>
           <AssociationSet Name="FK_TBL_KITAP_TBL_YAZAR" Association="Self.FK_TBL_KITAP_TBL_YAZAR">
             <End Role="TBL_YAZAR" EntitySet="TBL_YAZAR" />
             <End Role="TBL_KITAP" EntitySet="TBL_KITAP" />
@@ -478,6 +454,11 @@
           <EntitySet Name="TBL_ILETISIM" EntityType="DBKUTUPHANEModel.TBL_ILETISIM" />
           <FunctionImport Name="EnFazlaKitapYazar" ReturnType="Collection(String)" />
           <EntitySet Name="TBL_MESAJLAR" EntityType="DBKUTUPHANEModel.TBL_MESAJLAR" />
+          <EntitySet Name="TBL_KATEGORI" EntityType="DBKUTUPHANEModel.TBL_KATEGORI" />
+          <AssociationSet Name="FK_TBL_KITAP_TBL_KATEGORI" Association="DBKUTUPHANEModel.FK_TBL_KITAP_TBL_KATEGORI">
+            <End Role="TBL_KATEGORI" EntitySet="TBL_KATEGORI" />
+            <End Role="TBL_KITAP" EntitySet="TBL_KITAP" />
+          </AssociationSet>
         </EntityContainer>
         <Association Name="FK_TBL_HAREKET_TBL_PERSONEL">
           <End Type="DBKUTUPHANEModel.TBL_PERSONEL" Role="TBL_PERSONEL" Multiplicity="0..1" />
@@ -519,6 +500,27 @@
           <Property Name="TARIH" Type="DateTime" Precision="0" />
           <Property Name="GONDEREN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="TBL_KATEGORI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_KITAP" Relationship="DBKUTUPHANEModel.FK_TBL_KITAP_TBL_KATEGORI" FromRole="TBL_KATEGORI" ToRole="TBL_KITAP" />
+          <Property Name="DURUM" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_TBL_KITAP_TBL_KATEGORI">
+          <End Type="DBKUTUPHANEModel.TBL_KATEGORI" Role="TBL_KATEGORI" Multiplicity="0..1" />
+          <End Type="DBKUTUPHANEModel.TBL_KITAP" Role="TBL_KITAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_KATEGORI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_KITAP">
+              <PropertyRef Name="KATEGORI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -568,14 +570,6 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AY" ColumnName="AY" />
                 <ScalarProperty Name="TUTAR" ColumnName="TUTAR" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TBL_KATEGORI">
-            <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBL_KATEGORI">
-              <MappingFragment StoreEntitySet="TBL_KATEGORI">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="AD" ColumnName="AD" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -655,6 +649,15 @@
                 <ScalarProperty Name="ICERIK" ColumnName="ICERIK" />
                 <ScalarProperty Name="KONU" ColumnName="KONU" />
                 <ScalarProperty Name="ALICI" ColumnName="ALICI" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_KATEGORI">
+            <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBL_KATEGORI">
+              <MappingFragment StoreEntitySet="TBL_KATEGORI">
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

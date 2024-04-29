@@ -31,7 +31,6 @@ namespace MvcKutuphane.Models.Entity
         public virtual DbSet<TBL_CEZALAR> TBL_CEZALAR { get; set; }
         public virtual DbSet<TBL_HAREKET> TBL_HAREKET { get; set; }
         public virtual DbSet<TBL_KASA> TBL_KASA { get; set; }
-        public virtual DbSet<TBL_KATEGORI> TBL_KATEGORI { get; set; }
         public virtual DbSet<TBL_KITAP> TBL_KITAP { get; set; }
         public virtual DbSet<TBL_PERSONEL> TBL_PERSONEL { get; set; }
         public virtual DbSet<TBL_UYELER> TBL_UYELER { get; set; }
@@ -39,6 +38,7 @@ namespace MvcKutuphane.Models.Entity
         public virtual DbSet<TBL_HAKKIMIZDA> TBL_HAKKIMIZDA { get; set; }
         public virtual DbSet<TBL_ILETISIM> TBL_ILETISIM { get; set; }
         public virtual DbSet<TBL_MESAJLAR> TBL_MESAJLAR { get; set; }
+        public virtual DbSet<TBL_KATEGORI> TBL_KATEGORI { get; set; }
     
         public virtual ObjectResult<string> EnFazlaKitapYazar()
         {

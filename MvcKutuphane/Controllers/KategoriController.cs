@@ -34,8 +34,19 @@ namespace MvcKutuphane.Controllers
         public ActionResult KategoriSil(int id)
         {
             var kategori = db.TBL_KATEGORI.Find(id);
-            db.TBL_KATEGORI.Remove(kategori);
+            //db.TBL_KATEGORI.Remove(kategori);
+
+            kategori.DURUM = false;
             db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+        public ActionResult KategoriAktif(int id)
+        {
+            var kategori = db.TBL_KATEGORI.Find(id);
+            kategori.DURUM = true;
+            db.SaveChanges();
+
             return RedirectToAction("Index");
         }
         //veriyi id'sine göre çekiyoruz/çağırıyoruz
