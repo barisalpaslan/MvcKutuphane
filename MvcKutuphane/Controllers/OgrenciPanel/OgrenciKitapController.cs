@@ -11,6 +11,8 @@ namespace MvcKutuphane.Controllers.OgrenciPanel
     {
         // GET: OgrenciKitap
         DBKUTUPHANEEntities db = new DBKUTUPHANEEntities();
+
+        [Authorize]
         public ActionResult Index()
         {
             var uyemail = (string)Session["Mail"];

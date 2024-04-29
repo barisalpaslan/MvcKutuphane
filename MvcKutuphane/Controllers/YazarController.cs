@@ -7,6 +7,7 @@ using MvcKutuphane.Models.Entity;
 
 namespace MvcKutuphane.Controllers
 {
+    [AllowAnonymous]
     public class YazarController : Controller
     {
         // GET: Yazar

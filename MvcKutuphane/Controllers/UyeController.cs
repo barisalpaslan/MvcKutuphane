@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace MvcKutuphane.Controllers
 {
+    [AllowAnonymous]
     public class UyeController : Controller
     {
         // GET: Uye

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace MvcKutuphane.Controllers.OgrenciPanel
 {
+    [Authorize] // Bu Controllerdaki bütün methodlarda etkili olur.
     public class MesajController : Controller
     {
         // GET: Mesaj
